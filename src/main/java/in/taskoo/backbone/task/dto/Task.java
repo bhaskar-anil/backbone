@@ -3,6 +3,9 @@ package in.taskoo.backbone.task.dto;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Positive;
+
 import in.taskoo.backbone.common.dto.FileInfo;
 import in.taskoo.backbone.common.dto.Location;
 import in.taskoo.backbone.common.dto.User;
@@ -20,9 +23,11 @@ public class Task {
   private TaskStatus taskStatus;
   private TaskType taskType;
   private List<String> mustHaves;
+  @Future
   private LocalDate dueDate;
   private DueTimeType dueTimeType;
   private BudgetType budgetType;
+  @Positive
   private Integer amount;
   private String category;
   private Location location;

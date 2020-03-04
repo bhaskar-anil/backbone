@@ -20,6 +20,7 @@ public class TaskEntity extends BaseEntity {
   private Long id;
   private String title;
   private String details;
+  private Integer status;
   private Integer taskType;
 
   @OneToOne(cascade = CascadeType.ALL)

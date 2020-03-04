@@ -18,7 +18,7 @@ public class TaskMapper {
         .setTitle(task.getTitle())
         .setDetails(task.getDetails())
         .setTaskType(task.getTaskType().getId())
-        .setTaskType(TaskStatus.CREATED.getId())
+        .setStatus(TaskStatus.CREATED.getId())
         .setLocationEntity(prepareLocationEntity(task.getLocation()))
         .setMustHaves(String.join(",", task.getMustHaves()))
         .setDueDate(task.getDueDate())
