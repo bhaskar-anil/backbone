@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import in.taskoo.backbone.common.dto.FileInfo;
@@ -18,11 +20,14 @@ import lombok.Data;
 @Data
 public class Task {
   private Long id;
+  @NotBlank
   private String title;
+  @NotBlank
   private String details;
   private TaskStatus taskStatus;
   private TaskType taskType;
   private List<String> mustHaves;
+  @NotNull
   @Future
   private LocalDate dueDate;
   private DueTimeType dueTimeType;
