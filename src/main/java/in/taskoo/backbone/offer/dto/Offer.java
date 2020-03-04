@@ -8,4 +8,5 @@ public class Offer {
   private Long id;
   private User user;
   private Integer amount;
+  private Long taskId;
 }
