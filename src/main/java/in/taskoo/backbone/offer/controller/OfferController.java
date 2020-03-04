@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -30,8 +31,9 @@ public class OfferController {
   }
 
   @ResponseStatus(HttpStatus.OK)
-  @PatchMapping(consumes = APPLICATION_JSON_VALUE)
-  public void accept(@Valid @RequestBody AcceptOffer acceptOffer) {
-    return offerService.accept(acceptOffer);
+  @PatchMapping(consumes = APPLICATION_JSON_VALUE, value = "/{taskId}/offers/{offerId}/accept")
+  public void accept(@Valid @RequestBody AcceptOffer acceptOffer, @PathVariable Long taskId,
+      @PathVariable Long offerId) {
+    offerService.accept(acceptOffer, offerId, taskId);
   }
 }
