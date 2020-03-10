@@ -16,7 +16,7 @@ import in.taskoo.backbone.offer.comment.service.CommentService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@ValidatedController
+@ValidatedController(value = "/{taskId/offers/{offerId}/comments")
 public class CommentController {
 
   private final CommentService commentService;

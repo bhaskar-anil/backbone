@@ -1,19 +1,17 @@
 package in.taskoo.backbone.common.entity;
 
-import java.time.Clock;
 import java.time.LocalDateTime;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class BaseEntityListener {
   private static final int DB_COLUMN_LIMIT = 32;
 
-  @Autowired
-  private Clock clock;
+  // @Autowired
+  // private Clock clock;
 
   /**
    * It runs before saving data into DB.
@@ -26,10 +24,10 @@ public class BaseEntityListener {
     String programName = this.getProgramName();
 
     entity.setDeleteFlag(Boolean.FALSE);
-    entity.setCreateDateTime(LocalDateTime.now(clock));
+    entity.setCreateDateTime(LocalDateTime.now());
     entity.setCreateProgram(programName);
     entity.setCreateStaff(userName);
-    entity.setSysUpdateDateTime(LocalDateTime.now(clock));
+    entity.setSysUpdateDateTime(LocalDateTime.now());
     entity.setSysUpdateProgram(programName);
     entity.setSysUpdateStaff(userName);
     entity.setUpdateCount(0);
@@ -45,7 +43,7 @@ public class BaseEntityListener {
     String userName = this.getUserName();
     String programName = this.getProgramName();
 
-    entity.setSysUpdateDateTime(LocalDateTime.now(clock));
+    entity.setSysUpdateDateTime(LocalDateTime.now());
     entity.setSysUpdateProgram(programName);
     entity.setSysUpdateStaff(userName);
     entity.setUpdateCount(entity.getUpdateCount() + 1);

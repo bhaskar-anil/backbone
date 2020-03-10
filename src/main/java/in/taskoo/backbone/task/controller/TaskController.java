@@ -16,7 +16,7 @@ import in.taskoo.backbone.task.service.TaskService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@ValidatedController
+@ValidatedController(value = "/tasks")
 public class TaskController {
   
   private final TaskService taskService;

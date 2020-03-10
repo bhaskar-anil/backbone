@@ -9,12 +9,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import in.taskoo.backbone.common.dto.FileInfo;
-import in.taskoo.backbone.common.dto.Location;
-import in.taskoo.backbone.common.dto.User;
 import in.taskoo.backbone.common.dto.enums.BudgetType;
 import in.taskoo.backbone.common.dto.enums.DueTimeType;
+import in.taskoo.backbone.location.dto.Location;
 import in.taskoo.backbone.task.dto.enums.TaskStatus;
 import in.taskoo.backbone.task.dto.enums.TaskType;
+import in.taskoo.backbone.user.dto.User;
 import lombok.Data;
 
 @Data
@@ -35,6 +35,7 @@ public class Task {
   @Positive
   private Integer amount;
   private String category;
+  @NotNull
   private Location location;
   private User user;
   private FileInfo fileInfo;

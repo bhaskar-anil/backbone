@@ -1,32 +1,33 @@
-package in.taskoo.backbone.location.entity;
+package in.taskoo.backbone.user.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import in.taskoo.backbone.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Data
 @Entity
+@Data
 @EqualsAndHashCode(callSuper = false)
-public class LocationEntity extends BaseEntity {
+@Table(name = "t_user")
+public class UserEntity extends BaseEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
   private Long id;
-  @Column(name = "gid")
-  private String gid; // id property from places api response
-  @Column(name = "lng")
-  private Double lng;
-  @Column(name = "lat")
-  private Double lat;
-  @Column(name = "place_id")
-  private String placeId;
+  @Column(name = "user_id")
+  private Long userId; // this is the id of the user in on-boarding service
   @Column(name = "name")
   private String name;
-  @Column(name = "vicinity")
-  private String vicinity;
+  @Column(name = "email")
+  private String email;
+  @Column(name = "image_url")
+  private String imageUrl;
+  @Column(name = "phone")
+  private String phone;
 }

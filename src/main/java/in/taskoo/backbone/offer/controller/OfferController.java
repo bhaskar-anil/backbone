@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import in.taskoo.backbone.common.annotation.ValidatedController;
 import in.taskoo.backbone.common.dto.CreateResponse;
-import in.taskoo.backbone.offer.dto.AcceptOffer;
 import in.taskoo.backbone.offer.dto.Offer;
 import in.taskoo.backbone.offer.service.OfferService;
 import lombok.RequiredArgsConstructor;
 
-@ValidatedController
+@ValidatedController(value = "/{taskId}/offers")
 @RequiredArgsConstructor
 public class OfferController {
   
@@ -31,9 +30,8 @@ public class OfferController {
   }
 
   @ResponseStatus(HttpStatus.OK)
-  @PatchMapping(consumes = APPLICATION_JSON_VALUE, value = "/{taskId}/offers/{offerId}/accept")
-  public void accept(@Valid @RequestBody AcceptOffer acceptOffer, @PathVariable Long taskId,
-      @PathVariable Long offerId) {
-    offerService.accept(acceptOffer, offerId, taskId);
+  @PatchMapping(consumes = APPLICATION_JSON_VALUE, value = "/{offerId}/accept")
+  public void accept(@PathVariable Long offerId) {
+    offerService.accept(offerId);
   }
 }

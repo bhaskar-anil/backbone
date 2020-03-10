@@ -5,12 +5,12 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import in.taskoo.backbone.common.dto.CreateResponse;
-import in.taskoo.backbone.common.entity.UserEntity;
-import in.taskoo.backbone.common.repository.UserRepository;
 import in.taskoo.backbone.task.dto.Task;
 import in.taskoo.backbone.task.entity.TaskEntity;
 import in.taskoo.backbone.task.mapper.TaskMapper;
 import in.taskoo.backbone.task.repository.TaskRepository;
+import in.taskoo.backbone.user.entity.UserEntity;
+import in.taskoo.backbone.user.repository.UserRepository;
 import in.taskoo.common.exception.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 

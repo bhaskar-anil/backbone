@@ -1,9 +1,45 @@
 spring:
+  profiles:
+    active: local
   jpa:
+    open-in-view: false
+    show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
+      dialect: org.hibernate.dialect.MySQLInnoDBDialect
   datasource:
-    url: jdbc:log4jdbc:mysql://localhost:3306/cmp
-    username: root 
-    password:  
-    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/taskoo_core
+    username: root
+    password:
+
+logging:
+  level: 
+    org.hibernate.SQL: DEBUG
+    org.springframework.web: DEBUG
+    
+es:
+  base: http://localhost:8099/api/v1/es
+  task:
+    search: /tasks/search
+    create: /tasks/create
+    update: /tasks/update
+    
+  search.api: 
+    proxy:
+      scheme:
+      hostname:
+      port: 
+    connect.timeout: 
+    read.timeout: 
+  
+feedback:
+  base: http://localhost:8081
+
+  api:
+    proxy: 
+      scheme: 
+      hostname: 
+      port: 
+    connect.timeout: 
+    read.timeout: 

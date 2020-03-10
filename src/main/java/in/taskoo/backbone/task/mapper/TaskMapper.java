@@ -2,7 +2,7 @@ package in.taskoo.backbone.task.mapper;
 
 import org.springframework.stereotype.Component;
 
-import in.taskoo.backbone.common.dto.Location;
+import in.taskoo.backbone.location.dto.Location;
 import in.taskoo.backbone.location.entity.LocationEntity;
 import in.taskoo.backbone.task.dto.Task;
 import in.taskoo.backbone.task.dto.enums.TaskStatus;
