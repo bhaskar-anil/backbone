@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Location {
   private Long id;
-  private Long gid;
+  private String gid;
   private String name;
   private String placeId;
   private Geometry geometry;

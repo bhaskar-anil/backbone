@@ -29,4 +29,10 @@ public class TaskService {
     return new CreateResponse().setId(taskEntity.getId());
   }
 
+  public Task getATaskById(Long taskId) {
+    TaskEntity taskEntity = taskRepository.findById(taskId)
+        .orElseThrow(() -> new DataNotFoundException(String.valueOf(taskId)));
+    return taskMapper.toTask(taskEntity);
+  }
+
 }

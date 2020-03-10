@@ -21,7 +21,7 @@ public class UserEntity extends BaseEntity {
   @Column(name = "id")
   private Long id;
   @Column(name = "user_id")
-  private Long userId; // this is the id of the user in on-boarding service
+  private String userId; // this is the id of the user in on-boarding service
   @Column(name = "name")
   private String name;
   @Column(name = "email")
