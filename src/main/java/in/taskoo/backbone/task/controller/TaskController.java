@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import in.taskoo.backbone.common.annotation.ValidatedController;
 import in.taskoo.backbone.common.dto.CreateResponse;
-import in.taskoo.backbone.task.dto.Task;
+import in.taskoo.backbone.task.dto.TaskLite;
 import in.taskoo.backbone.task.service.TaskService;
 import lombok.RequiredArgsConstructor;
 
@@ -25,14 +25,15 @@ public class TaskController {
 
   @ResponseStatus(HttpStatus.CREATED)
   @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-  public CreateResponse postTask(@Valid @RequestBody Task task) {
+  public CreateResponse postTask(@Valid @RequestBody TaskLite task) {
     return taskService.postTask(task);
   }
 
   @ResponseStatus(HttpStatus.FOUND)
   @GetMapping(produces = APPLICATION_JSON_VALUE)
-  public Task getATask(@PathVariable("taskId") Long taskId) {
+  public TaskLite getATask(@PathVariable("taskId") Long taskId) {
     return taskService.getATaskById(taskId);
   }
+
 
 }

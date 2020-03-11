@@ -34,8 +34,10 @@ public class OfferEntity extends BaseEntity {
   private TaskEntity taskEntity;
   @Column(name = "amount")
   private Integer amount;
+  @Column(name = "details")
+  private String details;
   @Column(name = "is_accepted")
-  private Boolean isAccepted;
+  private Boolean isAccepted = Boolean.FALSE;
   @OneToMany(mappedBy = "offerEntity", cascade = CascadeType.ALL)
   private List<CommentEntity> comments;
 }

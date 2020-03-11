@@ -17,6 +17,9 @@ public enum TaskType {
 
   @JsonCreator
   public static TaskType toEnum(Integer value) {
-    return Arrays.stream(TaskType.values()).filter(type -> type.getId().equals(value)).findFirst().orElseThrow(null);
+    return Arrays.stream(TaskType.values())
+        .filter(type -> type.getId().equals(value))
+        .findFirst()
+        .orElseThrow(null);
   }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import in.taskoo.backbone.common.dto.CreateResponse;
 import in.taskoo.backbone.offer.dto.Offer;
 import in.taskoo.backbone.offer.entity.OfferEntity;
+import in.taskoo.backbone.offer.mapper.OfferMapper;
 import in.taskoo.backbone.offer.repository.OfferRepository;
 import in.taskoo.backbone.task.dto.enums.TaskStatus;
 import in.taskoo.backbone.task.entity.TaskEntity;
@@ -23,15 +24,16 @@ public class OfferService {
   private final OfferRepository offerRepository;
   private final TaskRepository taskRepository;
 
+  private final OfferMapper offerMapper;
+
   public CreateResponse offer(@Valid Offer offer) {
     TaskEntity taskEntity = taskRepository.findById(offer.getTaskId())
         .orElseThrow(() -> new DataNotFoundException(String.valueOf(offer.getUser().getId())));
     UserEntity userEntity = userRepository.findById(offer.getUser().getId())
         .orElseThrow(() -> new DataNotFoundException(String.valueOf(offer.getUser().getId())));
-    OfferEntity offerEntity = offerRepository.save(new OfferEntity()
+    OfferEntity offerEntity = offerRepository.save(offerMapper.toEntity(offer)
         .setUserEntity(userEntity)
-        .setTaskEntity(taskEntity)
-        .setAmount(offer.getAmount()));
+        .setTaskEntity(taskEntity));
     return new CreateResponse().setId(offerEntity.getId());
   }
 

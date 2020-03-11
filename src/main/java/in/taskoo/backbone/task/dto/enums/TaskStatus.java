@@ -23,6 +23,9 @@ public enum TaskStatus {
 
   @JsonCreator
   public static TaskStatus toEnum(Integer value) {
-    return Arrays.stream(TaskStatus.values()).filter(type -> type.getId().equals(value)).findFirst().orElseThrow(null);
+    return Arrays.stream(TaskStatus.values())
+        .filter(type -> type.getId().equals(value))
+        .findFirst()
+        .orElseThrow(null);
   }
 }

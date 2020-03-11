@@ -36,7 +36,7 @@ public class TaskEntity extends BaseEntity {
   @Column(name = "task_type")
   private Integer taskType;
 
-  @OneToOne
+  @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "location_id", referencedColumnName = "id")
   private LocationEntity locationEntity;
 
@@ -50,6 +50,8 @@ public class TaskEntity extends BaseEntity {
   private Integer budgetType;
   @Column(name = "budget_amount")
   private Integer budgetAmount;
+  @Column(name = "budget_hours")
+  private Integer budgetHours;
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "seeker_id", referencedColumnName = "id")

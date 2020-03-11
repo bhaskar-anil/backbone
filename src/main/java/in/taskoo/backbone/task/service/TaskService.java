@@ -1,15 +1,17 @@
 package in.taskoo.backbone.task.service;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
 import in.taskoo.backbone.common.dto.CreateResponse;
-import in.taskoo.backbone.task.dto.Task;
+import in.taskoo.backbone.task.dto.TaskLite;
 import in.taskoo.backbone.task.entity.TaskEntity;
 import in.taskoo.backbone.task.mapper.TaskMapper;
 import in.taskoo.backbone.task.repository.TaskRepository;
 import in.taskoo.backbone.user.entity.UserEntity;
+import in.taskoo.backbone.user.mapper.UserMapper;
 import in.taskoo.backbone.user.repository.UserRepository;
 import in.taskoo.common.exception.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -21,15 +23,17 @@ public class TaskService {
   private final TaskMapper taskMapper;
   private final TaskRepository taskRepository;
   private final UserRepository userRepository;
+  private final UserMapper userMapper;
 
-  public CreateResponse postTask(@Valid Task task) {
+  @Transactional
+  public CreateResponse postTask(@Valid TaskLite task) {
     UserEntity userEntity = userRepository.findById(task.getUser().getId())
-        .orElseThrow(() -> new DataNotFoundException(String.valueOf(task.getUser().getId())));
+        .orElse(userMapper.toUserEntity(task.getUser()));
     TaskEntity taskEntity = taskRepository.save(taskMapper.toEntity(task).setUserEntity(userEntity));
     return new CreateResponse().setId(taskEntity.getId());
   }
 
-  public Task getATaskById(Long taskId) {
+  public TaskLite getATaskById(Long taskId) {
     TaskEntity taskEntity = taskRepository.findById(taskId)
         .orElseThrow(() -> new DataNotFoundException(String.valueOf(taskId)));
     return taskMapper.toTask(taskEntity);
