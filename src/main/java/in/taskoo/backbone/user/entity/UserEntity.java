@@ -24,10 +24,12 @@ public class UserEntity extends BaseEntity {
   private String userId; // this is the id of the user in on-boarding service
   @Column(name = "name")
   private String name;
-  @Column(name = "email")
+  @Column(name = "email", unique = true)
   private String email;
   @Column(name = "image_url")
   private String imageUrl;
-  @Column(name = "phone")
+  @Column(name = "phone", unique = true)
   private String phone;
+  @Column(name = "valid_tasker")
+  private Boolean validTasker = Boolean.FALSE;
 }

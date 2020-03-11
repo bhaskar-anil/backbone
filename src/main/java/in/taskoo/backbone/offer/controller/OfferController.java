@@ -17,7 +17,7 @@ import in.taskoo.backbone.offer.dto.Offer;
 import in.taskoo.backbone.offer.service.OfferService;
 import lombok.RequiredArgsConstructor;
 
-@ValidatedController(value = "/{taskId}/offers")
+@ValidatedController(value = "/offers")
 @RequiredArgsConstructor
 public class OfferController {
   

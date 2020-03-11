@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import in.taskoo.backbone.common.entity.BaseEntity;
 import lombok.Data;
@@ -12,6 +13,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
+@Table(name = "t_location")
 @EqualsAndHashCode(callSuper = false)
 public class LocationEntity extends BaseEntity {
   @Id

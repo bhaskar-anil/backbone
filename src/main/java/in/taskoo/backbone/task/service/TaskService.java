@@ -10,6 +10,7 @@ import in.taskoo.backbone.task.dto.TaskLite;
 import in.taskoo.backbone.task.entity.TaskEntity;
 import in.taskoo.backbone.task.mapper.TaskMapper;
 import in.taskoo.backbone.task.repository.TaskRepository;
+import in.taskoo.backbone.user.dto.User;
 import in.taskoo.backbone.user.entity.UserEntity;
 import in.taskoo.backbone.user.mapper.UserMapper;
 import in.taskoo.backbone.user.repository.UserRepository;
@@ -27,8 +28,12 @@ public class TaskService {
 
   @Transactional
   public CreateResponse postTask(@Valid TaskLite task) {
-    UserEntity userEntity = userRepository.findById(task.getUser().getId())
-        .orElse(userMapper.toUserEntity(task.getUser()));
+    User user = task.getUser();
+    UserEntity userEntity = userRepository
+        .findByIdOrEmailOrPhone(user.getId(), user.getEmail(), user.getPhone())
+        .stream()
+        .findFirst()
+        .orElse(userMapper.toUserEntity(user));
     TaskEntity taskEntity = taskRepository.save(taskMapper.toEntity(task).setUserEntity(userEntity));
     return new CreateResponse().setId(taskEntity.getId());
   }
