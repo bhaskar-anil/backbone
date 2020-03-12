@@ -7,5 +7,4 @@ import in.taskoo.backbone.offer.entity.OfferEntity;
 
 @Repository
 public interface OfferRepository extends JpaRepository<OfferEntity, Long> {
-
 }

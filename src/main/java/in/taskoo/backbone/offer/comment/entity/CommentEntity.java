@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import in.taskoo.backbone.common.entity.BaseEntity;
 import in.taskoo.backbone.offer.entity.OfferEntity;
@@ -17,6 +18,7 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
+@Table(name = "t_comment")
 @EqualsAndHashCode(callSuper = false)
 public class CommentEntity extends BaseEntity {
   @Id

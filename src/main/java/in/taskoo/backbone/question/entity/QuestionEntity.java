@@ -23,12 +23,13 @@ public class QuestionEntity extends BaseEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  @Column(name = "question_text", columnDefinition = "TEXT")
+  private String questionText;
+
   @OneToOne
   @JoinColumn(name = "tasker_id", referencedColumnName = "id")
   private TaskEntity taskEntity;
   @OneToOne
   @JoinColumn(name = "user_id", referencedColumnName = "id")
   private UserEntity userEntity;
-  @Column(name = "vicinity", columnDefinition = "TEXT")
-  private String question;
 }

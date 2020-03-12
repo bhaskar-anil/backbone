@@ -19,7 +19,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class QuestionService {
 
-  private final QuestionRepository questionRepository;
+  private final QuestionRepository repository;
+
   private final UserRepository userRepository;
   private final TaskRepository taskRepository;
 
@@ -28,10 +29,11 @@ public class QuestionService {
         .orElseThrow(() -> new DataNotFoundException(String.valueOf(question.getUser().getId())));
     TaskEntity taskEntity = taskRepository.findById(question.getTaskId())
         .orElseThrow(() -> new DataNotFoundException(String.valueOf(question.getTaskId())));
-    QuestionEntity questionEntity = questionRepository.save(new QuestionEntity().
+    QuestionEntity questionEntity = repository.save(
+        new QuestionEntity().
         setTaskEntity(taskEntity)
         .setUserEntity(userEntity)
-        .setQuestion(question.getQuestion()));
+            .setQuestionText(question.getQuestionText()));
     return new CreateResponse()
         .setId(questionEntity.getId());
   }

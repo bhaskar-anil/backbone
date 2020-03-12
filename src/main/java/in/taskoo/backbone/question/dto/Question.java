@@ -11,5 +11,5 @@ public class Question {
   private User user;
   private Long taskId;
   @NotBlank
-  private String question;
+  private String questionText;
 }

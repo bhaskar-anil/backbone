@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,6 +41,6 @@ public class OfferEntity extends BaseEntity {
   private String details;
   @Column(name = "is_accepted")
   private Boolean isAccepted = Boolean.FALSE;
-  @OneToMany(mappedBy = "offerEntity", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "offerEntity", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private List<CommentEntity> comments;
 }

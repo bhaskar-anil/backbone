@@ -10,10 +10,8 @@ import in.taskoo.backbone.offer.comment.entity.CommentEntity;
 import in.taskoo.backbone.offer.comment.repository.CommentRepository;
 import in.taskoo.backbone.offer.entity.OfferEntity;
 import in.taskoo.backbone.offer.repository.OfferRepository;
-import in.taskoo.backbone.user.dto.User;
 import in.taskoo.backbone.user.entity.UserEntity;
-import in.taskoo.backbone.user.mapper.UserMapper;
-import in.taskoo.backbone.user.repository.UserRepository;
+import in.taskoo.backbone.user.service.UserService;
 import in.taskoo.common.exception.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 
@@ -22,23 +20,18 @@ import lombok.RequiredArgsConstructor;
 public class CommentService {
 
   private final CommentRepository commentRepository;
-  private final UserRepository userRepository;
   private final OfferRepository offerRepository;
-  private final UserMapper userMapper;
+  private final UserService userService;
 
   public CreateResponse comment(@Valid Comment comment) {
-    User user = comment.getUser();
     OfferEntity offerEntity = offerRepository.findById(comment.getOfferId())
         .orElseThrow(() -> new DataNotFoundException("offer:" + comment.getOfferId()));
-    UserEntity userEntity = userRepository
-        .findByIdOrEmailOrPhone(user.getId(), user.getEmail(), user.getPhone())
-        .stream()
-        .findFirst()
-        .orElse(userMapper.toUserEntity(user));
-    CommentEntity commentEntity = commentRepository.save(new CommentEntity()
+    UserEntity userEntity = userService.findOrCreateNew(comment.getUser());
+    CommentEntity commentEntity = new CommentEntity()
         .setComment(comment.getComment())
-        .setUserEntity(userEntity))
+        .setUserEntity(userEntity)
         .setOfferEntity(offerEntity);
+    commentRepository.save(commentEntity);
     return new CreateResponse()
         .setId(commentEntity.getId());
   }

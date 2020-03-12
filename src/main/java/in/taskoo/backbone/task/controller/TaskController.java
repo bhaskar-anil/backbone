@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import in.taskoo.backbone.common.annotation.ValidatedController;
@@ -30,10 +31,9 @@ public class TaskController {
   }
 
   @ResponseStatus(HttpStatus.FOUND)
-  @GetMapping(produces = APPLICATION_JSON_VALUE)
-  public TaskLite getATask(@PathVariable("taskId") Long taskId) {
-    return taskService.getATaskById(taskId);
+  @GetMapping(path = "/{taskId}", produces = APPLICATION_JSON_VALUE)
+  public Object getTaskLite(@PathVariable("taskId") Long taskId,
+      @RequestParam(name = "complete", defaultValue = "false") Boolean complete) {
+    return complete ? taskService.getTask(taskId) : taskService.getTaskLite(taskId);
   }
-
-
 }

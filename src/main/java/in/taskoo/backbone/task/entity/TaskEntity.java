@@ -1,6 +1,7 @@
 package in.taskoo.backbone.task.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,11 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import in.taskoo.backbone.common.entity.BaseEntity;
 import in.taskoo.backbone.location.entity.LocationEntity;
+import in.taskoo.backbone.offer.entity.OfferEntity;
+import in.taskoo.backbone.question.entity.QuestionEntity;
 import in.taskoo.backbone.user.entity.UserEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -58,4 +62,9 @@ public class TaskEntity extends BaseEntity {
   private UserEntity userEntity;
   @Column(name = "category")
   private String category;
+
+  @OneToMany(mappedBy = "taskEntity", cascade = CascadeType.ALL)
+  private List<OfferEntity> offers;
+  @OneToMany(mappedBy = "taskEntity", cascade = CascadeType.ALL)
+  private List<QuestionEntity> questions;
 }
