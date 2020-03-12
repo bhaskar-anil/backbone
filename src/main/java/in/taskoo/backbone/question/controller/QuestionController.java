@@ -16,7 +16,7 @@ import in.taskoo.backbone.question.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@ValidatedController(value = "/{taskId}/questions")
+@ValidatedController(value = "/questions")
 public class QuestionController {
   
   private final QuestionService questionService;

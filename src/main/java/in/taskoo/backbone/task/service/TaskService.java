@@ -50,6 +50,7 @@ public class TaskService {
     Hibernate.initialize(taskEntity.getOffers());
     Hibernate.initialize(taskEntity.getQuestions());
     return new Task()
+        .setTaskLite(taskMapper.toTask(taskEntity))
         .setOffers(offerMapper.toOffers(taskEntity.getOffers()))
         .setQuestions(questionMapper.toQuestions(taskEntity.getQuestions()));
   }
