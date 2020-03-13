@@ -1,0 +1,36 @@
+{
+    "title" : "title of the task",
+    "details" : "some multiline description",
+    "taskType" : 1,
+    "files" : [
+        "someBase64StringForAFile",
+        "someAnotherBase64StringForAFile"
+    ],
+    "mustHaves" : ["string1", "string2", "string3"],
+    "location" : {
+        "placeId" : "kjdhssHJGHJ87789BHbnvgvgh98789hgvg",
+        "geometry":
+            {	
+                "lng" : "123.213",
+                "lat" : "23.3445345"
+                
+            },
+        "name" : "prestige wellington park partment"
+    },
+    "dueDate" : "01-10-2020",
+    "dueTime" : 2,
+    "budget" :	{
+                    "type" : 2,
+                    "amount" : 2000,
+                    "hours"	: 0
+            
+                },
+
+"user" : {
+    "email" : "somaaasdadaaaeother11@mail.com",
+    "phone" : "123423423",
+    "name" : "some other user"
+},
+
+"category" : "laundary services"
+}
