@@ -1,18 +1,32 @@
 package in.taskoo.backbone.question.mapper;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
 import in.taskoo.backbone.question.dto.Question;
 import in.taskoo.backbone.question.entity.QuestionEntity;
+import in.taskoo.backbone.user.mapper.UserMapper;
+import lombok.RequiredArgsConstructor;
 
 @Component
+@RequiredArgsConstructor
 public class QuestionMapper {
+  private final UserMapper userMapper;
+  
   public Question toQuestion(QuestionEntity entity) {
     return new Question()
-        .setQuestionText(entity.getQuestionText());
+        .setId(entity.getId())
+        .setQuestionText(entity.getQuestionText())
+        .setPostedAt(entity.getPostedAt())
+        .setParentId(Objects.nonNull(entity.getParent())
+            ? Optional.of(entity.getParent().getId())
+            : Optional.empty())
+        .setUser(userMapper.toUser(entity.getUserEntity()))
+        .setTaskId(entity.getTaskEntity().getId());
   }
 
   public QuestionEntity toEntity(Question question) {

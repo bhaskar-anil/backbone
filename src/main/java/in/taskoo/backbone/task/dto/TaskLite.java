@@ -7,11 +7,7 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import in.taskoo.backbone.common.dto.FileInfo;
 import in.taskoo.backbone.common.dto.enums.DueTimeType;
@@ -33,9 +29,7 @@ public class TaskLite {
   private List<String> mustHaves;
   @NotNull
   @Future
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-  @JsonDeserialize(using = LocalDateDeserializer.class)
-  @JsonSerialize(using = LocalDateSerializer.class)
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private LocalDate dueDate;
   private DueTimeType dueTimeType;
   private Budget budget;

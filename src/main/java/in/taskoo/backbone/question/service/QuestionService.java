@@ -29,11 +29,16 @@ public class QuestionService {
         .orElseThrow(() -> new DataNotFoundException(String.valueOf(question.getUser().getId())));
     TaskEntity taskEntity = taskRepository.findById(question.getTaskId())
         .orElseThrow(() -> new DataNotFoundException(String.valueOf(question.getTaskId())));
+    QuestionEntity parent = null;
+    if (question.getParentId().isPresent()) {
+      parent = repository.findById(question.getParentId().get()).orElse(null);
+    }
     QuestionEntity questionEntity = repository.save(
-        new QuestionEntity().
-        setTaskEntity(taskEntity)
+        new QuestionEntity()
+        .setTaskEntity(taskEntity)
         .setUserEntity(userEntity)
-            .setQuestionText(question.getQuestionText()));
+        .setParent(parent)
+        .setQuestionText(question.getQuestionText()));
     return new CreateResponse()
         .setId(questionEntity.getId());
   }

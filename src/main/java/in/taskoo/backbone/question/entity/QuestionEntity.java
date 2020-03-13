@@ -1,5 +1,8 @@
 package in.taskoo.backbone.question.entity;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +28,8 @@ public class QuestionEntity extends BaseEntity {
   private Long id;
   @Column(name = "question_text", columnDefinition = "TEXT")
   private String questionText;
+  @Column(name = "posted_at")
+  private LocalDateTime postedAt = LocalDateTime.now();
 
   @OneToOne
   @JoinColumn(name = "tasker_id", referencedColumnName = "id")
@@ -32,4 +37,9 @@ public class QuestionEntity extends BaseEntity {
   @OneToOne
   @JoinColumn(name = "user_id", referencedColumnName = "id")
   private UserEntity userEntity;
+
+  @Basic(optional = true)
+  @OneToOne
+  @JoinColumn(name = "parent_id", referencedColumnName = "id")
+  private QuestionEntity parent;
 }
