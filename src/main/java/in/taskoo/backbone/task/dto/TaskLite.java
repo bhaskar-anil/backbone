@@ -8,6 +8,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import in.taskoo.backbone.common.dto.FileInfo;
 import in.taskoo.backbone.common.dto.enums.DueTimeType;
@@ -38,4 +40,6 @@ public class TaskLite {
   private Location location;
   private User user;
   private FileInfo fileInfo;
+  @JsonProperty(access = Access.READ_ONLY)
+  private Integer noOfOffers;
 }

@@ -52,6 +52,7 @@ public class TaskMapper {
             .setHours(taskEntity.getBudgetHours())
             .setType(BudgetType.toEnum(taskEntity.getBudgetType())))
         .setUser(userMapper.toUser(taskEntity.getUserEntity()))
-        .setCategory(taskEntity.getCategory());
+        .setCategory(taskEntity.getCategory())
+        .setNoOfOffers(taskEntity.getNoOfOffers());
   }
 }

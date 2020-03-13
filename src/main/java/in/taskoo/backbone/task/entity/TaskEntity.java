@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Formula;
+
 import in.taskoo.backbone.common.entity.BaseEntity;
 import in.taskoo.backbone.location.entity.LocationEntity;
 import in.taskoo.backbone.offer.entity.OfferEntity;
@@ -67,4 +69,7 @@ public class TaskEntity extends BaseEntity {
   private List<OfferEntity> offers;
   @OneToMany(mappedBy = "taskEntity", cascade = CascadeType.ALL)
   private List<QuestionEntity> questions;
+
+  @Formula("(select count(*) from t_offer as of where of.task_id = id)")
+  private Integer noOfOffers;
 }
