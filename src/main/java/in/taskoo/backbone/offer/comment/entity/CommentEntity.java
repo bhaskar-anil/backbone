@@ -1,5 +1,7 @@
 package in.taskoo.backbone.offer.comment.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,4 +34,6 @@ public class CommentEntity extends BaseEntity {
   @ManyToOne
   @JoinColumn(name = "offer_id", referencedColumnName = "id")
   private OfferEntity offerEntity;
+  @Column(name = "posted_at")
+  private LocalDateTime postedAt = LocalDateTime.now();
 }

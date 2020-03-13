@@ -26,9 +26,9 @@ public class QuestionService {
 
   public CreateResponse ask(@Valid Question question) {
     UserEntity userEntity = userRepository.findById(question.getUser().getId())
-        .orElseThrow(() -> new DataNotFoundException(String.valueOf(question.getUser().getId())));
+        .orElseThrow(() -> new DataNotFoundException("user", question.getUser().getId()));
     TaskEntity taskEntity = taskRepository.findById(question.getTaskId())
-        .orElseThrow(() -> new DataNotFoundException(String.valueOf(question.getTaskId())));
+        .orElseThrow(() -> new DataNotFoundException("task", question.getTaskId()));
     QuestionEntity parent = null;
     if (question.getParentId().isPresent()) {
       parent = repository.findById(question.getParentId().get()).orElse(null);

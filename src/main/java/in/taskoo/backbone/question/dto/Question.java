@@ -27,6 +27,6 @@ public class Question {
   private String questionText;
 
   @JsonProperty(access = Access.READ_ONLY)
-  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
   private LocalDateTime postedAt;
 }

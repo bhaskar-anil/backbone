@@ -39,14 +39,14 @@ public class TaskService {
 
   public TaskLite getTaskLite(Long taskId) {
     TaskEntity taskEntity = taskRepository.findById(taskId)
-        .orElseThrow(() -> new DataNotFoundException(String.valueOf(taskId)));
+        .orElseThrow(() -> new DataNotFoundException("task", taskId));
     return taskMapper.toTask(taskEntity);
   }
 
   @Transactional
   public Task getTask(Long taskId) {
     TaskEntity taskEntity = taskRepository.findById(taskId)
-        .orElseThrow(() -> new DataNotFoundException(String.valueOf(taskId)));
+        .orElseThrow(() -> new DataNotFoundException("task", taskId));
     Hibernate.initialize(taskEntity.getOffers());
     Hibernate.initialize(taskEntity.getQuestions());
     return new Task()

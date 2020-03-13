@@ -32,7 +32,7 @@ public class OfferService {
 
   public CreateResponse offer(@Valid Offer offer) {
     TaskEntity taskEntity = taskRepository.findById(offer.getTaskId())
-        .orElseThrow(() -> new DataNotFoundException(String.valueOf(offer.getTaskId())));
+        .orElseThrow(() -> new DataNotFoundException("task", offer.getTaskId()));
     User user = offer.getUser();
     UserEntity userEntity = userRepository
         .findByIdOrEmailOrPhone(user.getId(), user.getEmail(), user.getPhone())
@@ -51,13 +51,13 @@ public class OfferService {
 
   public void accept(Long offerId) {
     OfferEntity offerEntity = offerRepository.findById(offerId)
-        .orElseThrow(() -> new DataNotFoundException(String.valueOf(offerId)));
+        .orElseThrow(() -> new DataNotFoundException("offer", offerId));
     taskRepository.save(offerEntity.getTaskEntity().setStatus(TaskStatus.ACCEPTED.getId()));
   }
 
   public void withdraw(Long offerId) {
     OfferEntity offerEntity = offerRepository.findById(offerId)
-        .orElseThrow(() -> new DataNotFoundException(String.valueOf(offerId)));
+        .orElseThrow(() -> new DataNotFoundException("offer", offerId));
     taskRepository.save(offerEntity.getTaskEntity().setStatus(TaskStatus.CANCELLED.getId()));
   }
 

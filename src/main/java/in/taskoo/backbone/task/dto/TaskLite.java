@@ -7,7 +7,7 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import in.taskoo.backbone.common.dto.FileInfo;
 import in.taskoo.backbone.common.dto.enums.DueTimeType;
@@ -29,7 +29,7 @@ public class TaskLite {
   private List<String> mustHaves;
   @NotNull
   @Future
-  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  @JsonFormat(pattern = "dd-MM-yyyy")
   private LocalDate dueDate;
   private DueTimeType dueTimeType;
   private Budget budget;
