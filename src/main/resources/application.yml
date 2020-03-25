@@ -1,6 +1,6 @@
+server:
+  port: 8001
 spring:
-  profiles:
-    active: local
   jpa:
     open-in-view: false
     show-sql: true
@@ -11,35 +11,21 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/taskoo_core
     username: root
-    password:
+    password: 
 
 logging:
   level: 
     org.hibernate.SQL: DEBUG
     org.springframework.web: DEBUG
     
-es:
-  base: http://localhost:8099/api/v1/es
-  task:
-    search: /tasks/search
-    create: /tasks/create
-    update: /tasks/update
-    
-  search.api: 
-    proxy:
-      scheme:
-      hostname:
-      port: 
-    connect.timeout: 
-    read.timeout: 
-  
-feedback:
-  base: http://localhost:8081
+onboarding:
+  url: http://localhost:8080
+  user.url: /users
 
-  api:
-    proxy: 
-      scheme: 
-      hostname: 
-      port: 
-    connect.timeout: 
-    read.timeout: 
+message.api:
+  proxy:
+    schme:
+    hostname:
+    port:
+  connect.timeout: 
+  read.timeout: 

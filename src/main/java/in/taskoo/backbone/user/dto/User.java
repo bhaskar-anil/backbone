@@ -14,6 +14,7 @@ public class User {
   private String phone;
   @Email
   private String email;
+  private String password;
   private String name;
   private String imageUrl;
 }

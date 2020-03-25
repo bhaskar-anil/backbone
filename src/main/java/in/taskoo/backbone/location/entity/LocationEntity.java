@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import in.taskoo.backbone.common.entity.BaseEntity;
+import in.taskoo.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

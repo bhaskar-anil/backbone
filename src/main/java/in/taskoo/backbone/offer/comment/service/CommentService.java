@@ -13,7 +13,6 @@ import in.taskoo.backbone.offer.entity.OfferEntity;
 import in.taskoo.backbone.offer.repository.OfferRepository;
 import in.taskoo.backbone.user.entity.UserEntity;
 import in.taskoo.backbone.user.service.UserService;
-import in.taskoo.common.exception.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -26,7 +25,7 @@ public class CommentService {
 
   public CreateResponse comment(@Valid Comment comment) {
     OfferEntity offerEntity = offerRepository.findById(comment.getOfferId())
-        .orElseThrow(() -> new DataNotFoundException("offer", comment.getOfferId()));
+        .orElseThrow(null);
     UserEntity userEntity = userService.findOrCreateNew(comment.getUser());
     CommentEntity commentEntity = commentMapper.toEntity(comment)
         .setUserEntity(userEntity)

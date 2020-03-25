@@ -12,7 +12,6 @@ import in.taskoo.backbone.task.entity.TaskEntity;
 import in.taskoo.backbone.task.repository.TaskRepository;
 import in.taskoo.backbone.user.entity.UserEntity;
 import in.taskoo.backbone.user.repository.UserRepository;
-import in.taskoo.common.exception.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -26,9 +25,9 @@ public class QuestionService {
 
   public CreateResponse ask(@Valid Question question) {
     UserEntity userEntity = userRepository.findById(question.getUser().getId())
-        .orElseThrow(() -> new DataNotFoundException("user", question.getUser().getId()));
+        .orElseThrow(null);
     TaskEntity taskEntity = taskRepository.findById(question.getTaskId())
-        .orElseThrow(() -> new DataNotFoundException("task", question.getTaskId()));
+        .orElseThrow(null);
     QuestionEntity parent = null;
     if (question.getParentId().isPresent()) {
       parent = repository.findById(question.getParentId().get()).orElse(null);

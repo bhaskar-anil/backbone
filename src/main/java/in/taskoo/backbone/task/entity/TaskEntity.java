@@ -16,11 +16,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Formula;
 
-import in.taskoo.backbone.common.entity.BaseEntity;
 import in.taskoo.backbone.location.entity.LocationEntity;
 import in.taskoo.backbone.offer.entity.OfferEntity;
 import in.taskoo.backbone.question.entity.QuestionEntity;
 import in.taskoo.backbone.user.entity.UserEntity;
+import in.taskoo.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

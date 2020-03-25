@@ -1,5 +1,7 @@
 package in.taskoo.backbone.task.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -15,7 +17,6 @@ import in.taskoo.backbone.task.entity.TaskEntity;
 import in.taskoo.backbone.task.mapper.TaskMapper;
 import in.taskoo.backbone.task.repository.TaskRepository;
 import in.taskoo.backbone.user.service.UserService;
-import in.taskoo.common.exception.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -39,20 +40,25 @@ public class TaskService {
 
   public TaskLite getTaskLite(Long taskId) {
     TaskEntity taskEntity = taskRepository.findById(taskId)
-        .orElseThrow(() -> new DataNotFoundException("task", taskId));
+        .orElseThrow(null);
     return taskMapper.toTask(taskEntity);
   }
 
   @Transactional
   public Task getTask(Long taskId) {
     TaskEntity taskEntity = taskRepository.findById(taskId)
-        .orElseThrow(() -> new DataNotFoundException("task", taskId));
+        .orElseThrow(null);
     Hibernate.initialize(taskEntity.getOffers());
     Hibernate.initialize(taskEntity.getQuestions());
     return new Task()
         .setTaskLite(taskMapper.toTask(taskEntity))
         .setOffers(offerMapper.toOffers(taskEntity.getOffers()))
         .setQuestions(questionMapper.toQuestions(taskEntity.getQuestions()));
+  }
+
+  public List<TaskLite> search(String query, String loc, Integer maxp, Integer minp, Integer tt, Integer ts) {
+    // TODO replaces with search service
+    return taskMapper.toTaskLites(taskRepository.search(query, loc, maxp, minp, tt, ts));
   }
 
 }

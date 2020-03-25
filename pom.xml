@@ -24,6 +24,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>in.taskoo</groupId>
+			<artifactId>security</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>in.taskoo</groupId>
 			<artifactId>common</artifactId>
 			<version>${common-module-version}</version>
 		</dependency>
@@ -69,6 +74,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+				    <includeSystemScope>true</includeSystemScope>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

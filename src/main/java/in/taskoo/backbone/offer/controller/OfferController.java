@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import in.taskoo.backbone.common.annotation.ValidatedController;
 import in.taskoo.backbone.common.dto.CreateResponse;
 import in.taskoo.backbone.offer.dto.Offer;
 import in.taskoo.backbone.offer.service.OfferService;
+import in.taskoo.common.annotation.ValidatedController;
 import lombok.RequiredArgsConstructor;
 
 @ValidatedController(value = "/offers")

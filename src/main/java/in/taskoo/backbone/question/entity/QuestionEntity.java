@@ -12,9 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import in.taskoo.backbone.common.entity.BaseEntity;
 import in.taskoo.backbone.task.entity.TaskEntity;
 import in.taskoo.backbone.user.entity.UserEntity;
+import in.taskoo.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -1,6 +1,8 @@
 package in.taskoo.backbone.task.mapper;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -54,5 +56,12 @@ public class TaskMapper {
         .setUser(userMapper.toUser(taskEntity.getUserEntity()))
         .setCategory(taskEntity.getCategory())
         .setNoOfOffers(taskEntity.getNoOfOffers());
+  }
+  
+  public List<TaskLite> toTaskLites(List<TaskEntity> entities) {
+    return entities
+        .stream()
+        .map(entity -> toTask(entity))
+        .collect(Collectors.toList());
   }
 }
