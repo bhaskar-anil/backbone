@@ -11,22 +11,22 @@
 	</parent>
 	<groupId>in.taskoo</groupId>
 	<artifactId>backbone</artifactId>
-	<version>1.0.0-beta-version-SNAPSHOT</version>
+	<version>1.0.0-aws-SNAPSHOT</version>
 	<name>backbone</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<common-module-version>1.0.0-beta-version-SNAPSHOT</common-module-version>
+		<common-module-version>1.0.0-aws-SNAPSHOT</common-module-version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
+		<!-- <dependency>
 			<groupId>in.taskoo</groupId>
 			<artifactId>security</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>in.taskoo</groupId>
 			<artifactId>common</artifactId>
