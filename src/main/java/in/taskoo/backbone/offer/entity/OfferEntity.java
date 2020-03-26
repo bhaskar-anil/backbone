@@ -14,10 +14,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import in.taskoo.backbone.offer.comment.entity.CommentEntity;
+import in.taskoo.backbone.comment.entity.CommentEntity;
+import in.taskoo.backbone.common.entity.BaseEntity;
 import in.taskoo.backbone.task.entity.TaskEntity;
 import in.taskoo.backbone.user.entity.UserEntity;
-import in.taskoo.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -26,6 +26,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "t_offer")
 @EqualsAndHashCode(callSuper = false)
 public class OfferEntity extends BaseEntity {
+  private static final long serialVersionUID = 2064628268217374262L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

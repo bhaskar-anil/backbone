@@ -1,4 +1,4 @@
-package in.taskoo.backbone.offer.comment.entity;
+package in.taskoo.backbone.comment.entity;
 
 import java.time.LocalDateTime;
 
@@ -12,9 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import in.taskoo.backbone.common.entity.BaseEntity;
 import in.taskoo.backbone.offer.entity.OfferEntity;
 import in.taskoo.backbone.user.entity.UserEntity;
-import in.taskoo.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -23,6 +23,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "t_comment")
 @EqualsAndHashCode(callSuper = false)
 public class CommentEntity extends BaseEntity {
+  private static final long serialVersionUID = -3971977537096417533L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

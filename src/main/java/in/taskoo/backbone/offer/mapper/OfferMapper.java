@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import in.taskoo.backbone.offer.comment.mapper.CommentMapper;
+import in.taskoo.backbone.comment.mapper.CommentMapper;
 import in.taskoo.backbone.offer.dto.Offer;
 import in.taskoo.backbone.offer.entity.OfferEntity;
 import in.taskoo.backbone.user.mapper.UserMapper;

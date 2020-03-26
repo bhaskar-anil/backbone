@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import in.taskoo.backbone.common.dto.CreateResponse;
+import in.taskoo.backbone.common.dto.annotation.ValidatedController;
 import in.taskoo.backbone.question.dto.Question;
 import in.taskoo.backbone.question.service.QuestionService;
-import in.taskoo.common.annotation.ValidatedController;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

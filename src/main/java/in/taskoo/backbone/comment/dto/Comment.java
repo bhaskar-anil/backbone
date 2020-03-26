@@ -1,4 +1,4 @@
-package in.taskoo.backbone.offer.comment.dto;
+package in.taskoo.backbone.comment.dto;
 
 import java.time.LocalDateTime;
 

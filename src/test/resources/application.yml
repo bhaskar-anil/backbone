@@ -17,3 +17,15 @@ logging:
   level: 
     org.hibernate.SQL: DEBUG
     org.springframework.web: DEBUG
+    
+onboarding:
+  url: 
+  user.url: 
+
+message.api:
+  proxy:
+    schme:
+    hostname:
+    port:
+  connect.timeout: 
+  read.timeout: 

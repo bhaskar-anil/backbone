@@ -12,9 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import in.taskoo.backbone.common.entity.BaseEntity;
 import in.taskoo.backbone.task.entity.TaskEntity;
 import in.taskoo.backbone.user.entity.UserEntity;
-import in.taskoo.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -23,6 +23,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class QuestionEntity extends BaseEntity {
+  private static final long serialVersionUID = -8319589707663937039L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

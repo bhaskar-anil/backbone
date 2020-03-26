@@ -5,7 +5,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-import in.taskoo.backbone.offer.comment.dto.Comment;
+import in.taskoo.backbone.comment.dto.Comment;
 import in.taskoo.backbone.user.dto.User;
 import lombok.Data;
 

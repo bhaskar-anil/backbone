@@ -1,4 +1,4 @@
-package in.taskoo.backbone.offer.comment.controller;
+package in.taskoo.backbone.comment.controller;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import in.taskoo.backbone.comment.dto.Comment;
+import in.taskoo.backbone.comment.service.CommentService;
 import in.taskoo.backbone.common.dto.CreateResponse;
-import in.taskoo.backbone.offer.comment.dto.Comment;
-import in.taskoo.backbone.offer.comment.service.CommentService;
-import in.taskoo.common.annotation.ValidatedController;
+import in.taskoo.backbone.common.dto.annotation.ValidatedController;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

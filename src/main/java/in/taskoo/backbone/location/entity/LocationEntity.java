@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import in.taskoo.common.entity.BaseEntity;
+import in.taskoo.backbone.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,6 +16,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "t_location")
 @EqualsAndHashCode(callSuper = false)
 public class LocationEntity extends BaseEntity {
+  private static final long serialVersionUID = -4718789037921916044L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

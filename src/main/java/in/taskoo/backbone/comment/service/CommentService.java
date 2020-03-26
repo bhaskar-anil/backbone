@@ -1,14 +1,14 @@
-package in.taskoo.backbone.offer.comment.service;
+package in.taskoo.backbone.comment.service;
 
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import in.taskoo.backbone.comment.dto.Comment;
+import in.taskoo.backbone.comment.entity.CommentEntity;
+import in.taskoo.backbone.comment.mapper.CommentMapper;
+import in.taskoo.backbone.comment.repository.CommentRepository;
 import in.taskoo.backbone.common.dto.CreateResponse;
-import in.taskoo.backbone.offer.comment.dto.Comment;
-import in.taskoo.backbone.offer.comment.entity.CommentEntity;
-import in.taskoo.backbone.offer.comment.mapper.CommentMapper;
-import in.taskoo.backbone.offer.comment.repository.CommentRepository;
 import in.taskoo.backbone.offer.entity.OfferEntity;
 import in.taskoo.backbone.offer.repository.OfferRepository;
 import in.taskoo.backbone.user.entity.UserEntity;
