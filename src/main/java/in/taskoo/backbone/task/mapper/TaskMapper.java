@@ -2,6 +2,7 @@ package in.taskoo.backbone.task.mapper;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
@@ -30,9 +31,12 @@ public class TaskMapper {
         .setDetails(task.getDetails())
         .setTaskType(task.getTaskType().getId())
         .setStatus(TaskStatus.CREATED.getId())
-        .setLocationEntity(locationMapper.toLocationEntity(task.getLocation())) // location
+        .setLocationEntity(Objects.nonNull(task.getLocation()) 
+            ? locationMapper.toLocationEntity(task.getLocation())
+            : null) // location
         .setMustHaves(String.join(",", task.getMustHaves()))
         .setDueDate(task.getDueDate())
+        .setDueTime(task.getDueTimeType().getId())
         .setBudgetType(task.getBudget().getType().getId())
         .setBudgetAmount(task.getBudget().getAmount())
         .setBudgetHours(task.getBudget().getHours())
