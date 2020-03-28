@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import in.taskoo.backbone.common.dto.enums.BudgetType;
+import in.taskoo.backbone.common.dto.enums.DueTimeType;
 import in.taskoo.backbone.location.mapper.LocationMapper;
 import in.taskoo.backbone.task.dto.Budget;
 import in.taskoo.backbone.task.dto.TaskLite;
@@ -49,6 +50,7 @@ public class TaskMapper {
         .setLocation(locationMapper.toLocation(taskEntity.getLocationEntity()))
         .setMustHaves(Arrays.asList(taskEntity.getMustHaves().split(",")))
         .setDueDate(taskEntity.getDueDate())
+        .setDueTimeType(DueTimeType.toEnum(taskEntity.getDueTime()))
         .setBudget(new Budget()
             .setAmount(taskEntity.getBudgetAmount())
             .setHours(taskEntity.getBudgetHours())

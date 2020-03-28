@@ -32,16 +32,16 @@ public class TaskController {
     return taskService.postTask(task);
   }
 
-  @ResponseStatus(HttpStatus.FOUND)
-  @GetMapping(produces = APPLICATION_JSON_VALUE)
+  @ResponseStatus(HttpStatus.OK)
+  @GetMapping(value = "/{taskId}", produces = APPLICATION_JSON_VALUE)
   public Object getTaskLite(@PathVariable("taskId") Long taskId,
       @RequestParam(name = "complete", defaultValue = "false") Boolean complete) {
     return complete ? taskService.getTask(taskId) : taskService.getTaskLite(taskId);
   }
 
   // TODO later replace with search api
-  @ResponseStatus(HttpStatus.FOUND)
-  @GetMapping(path = "/tasks", produces = APPLICATION_JSON_VALUE)
+  @ResponseStatus(HttpStatus.OK)
+  @GetMapping(produces = APPLICATION_JSON_VALUE)
   public List<TaskLite> findAll(@RequestParam(name = "q", required = false) String q,
       @RequestParam(name = "l", required = false) String l, @RequestParam(name = "maxp", required = false) Integer maxp,
       @RequestParam(name = "minp", required = false) Integer minp,

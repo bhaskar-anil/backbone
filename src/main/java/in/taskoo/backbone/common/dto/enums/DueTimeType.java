@@ -19,6 +19,10 @@ public enum DueTimeType {
 
   @JsonCreator
   public static DueTimeType toEnum(Integer value) {
-    return Arrays.stream(DueTimeType.values()).filter(type -> type.getId().equals(value)).findFirst().orElseThrow(null);
+    return Arrays
+        .stream(DueTimeType.values())
+        .filter(type -> type.getId().equals(value))
+        .findFirst()
+        .orElseThrow(null);
   }
 }

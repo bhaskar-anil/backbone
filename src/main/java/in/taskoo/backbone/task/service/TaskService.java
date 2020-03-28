@@ -34,7 +34,8 @@ public class TaskService {
   @Transactional
   public CreateResponse postTask(@Valid TaskLite task) {
     TaskEntity taskEntity = taskRepository
-        .save(taskMapper.toEntity(task).setUserEntity(userService.findOrCreateNew(task.getUser())));
+        .save(taskMapper.toEntity(task)
+            .setUserEntity(userService.findOrCreateNew(task.getUser())));
     return new CreateResponse().setId(taskEntity.getId());
   }
 

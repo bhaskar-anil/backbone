@@ -1,0 +1,128 @@
+
+
+-------------------------------------------IN_PERSON-------------------------------------------
+
+{
+  "title": "Roof repair, cleaning and painting",
+  "details": "Roof repair, cleaning and painting \n Below items to be covered. \n Repair broken tiles, embedding and repointing tiles \n Fascia (1mx2) partial repair \n Gutter and an eave board repair if needed \n Pressure cleaning - roof and gutter \n Applying water proof sealer \n Gutter repair if needed \n Apply roof membrane \n Roof painting one primer and double coats \n with quality primer and paint",
+  "taskType": 1,
+  "files": ["someBase64StringForAFile", "someAnotherBase64StringForAFile"],
+  "mustHaves": ["string1", "string2", "string3"],
+  "location":{
+    "placeId" : "ChIJyWEHuEmuEmsRm9hTkapTCrk",
+    "geometry":{
+      "lng":"77.6376423",
+      "lat":"12.975221"
+    },
+    "name" : "2nd Cross Rd, Binnamangala, Indiranagar, Bengaluru, Karnataka 560038",
+    "vicinity" : "2nd Cross Rd, Binnamangala, Indiranagar, Bengaluru, Karnataka 560038"
+  },
+  "dueDate": "01-10-2020",
+  "dueTimeType": 2,
+  "budget":{
+    "type":2,
+    "amount":600,
+    "hours":5
+  },
+  "user":{
+    "email":"test-user1@mail.com",
+    "phone":"9123456780",
+    "name":"test user 1",
+    "imageUrl":"https://eu7cmie.cloudimg.io/s/crop/136x136/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2988674/image-a69a669cca2a530237c2ee79e20573d0.jpg"
+  },
+  "category": "Painting Services"
+}
+
+
+{
+  "title": "I need to help to move one bedroom worth",
+  "details": "Help to drive me and the things 😂 dismantle a bookshelf (if required to fit) and also to move the bags of clothes and stuff (-maybe looking into the big Kmart storage bags like 5 of them) and boxes with kitchen stuff with your vehicle from hurstville to shellharbour. \n Am to looking to move next weekend, 26 or 27th ish is fine",
+  "taskType": 1,
+  "files": ["someBase64StringForAFile", "someAnotherBase64StringForAFile"],
+  "mustHaves": ["string1", "string2", "string3"],
+  "location":{
+    "placeId" : "ChIJyWEHuEmuEmsRm9hTkapTCrk",
+    "geometry":{
+      "lng":"77.6351366",
+      "lat":"12.9740172"
+    },
+    "name" : "Appareddy Palya Rd, Stage 3, Indiranagar Bengaluru, Karnataka 560038",
+    "vicinity" : "Appareddy Palya Rd, Stage 3, Indiranagar Bengaluru, Karnataka 560038"
+  },
+  "dueDate": "01-10-2020",
+  "dueTimeType": 2,
+  "budget":{
+    "type":1,
+    "amount":2500,
+    "hours":0
+  },
+  "user":{
+    "email":"test-user1@mail.com",
+    "phone":"9123456780",
+    "name":"test user 1",
+    "imageUrl":"https://eu7cmie.cloudimg.io/s/crop/136x136/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2988674/image-a69a669cca2a530237c2ee79e20573d0.jpg"
+  },
+  "category": "Moving"
+}
+
+{
+  "title": "Some help moving my belongings",
+  "details": "Hey, my name is Matthew, I need some help moving my belongings from Darlinghurst to Penrith. \n Not too many items just a few boxes, a small tv and a suitcase. \n Everything will be together and ready for you when you arrive to start loading up. \n  \n If I could get a lift with you that would be perfect. \n  \n What's the pickup location? \n Darlinghurst NSW, Australia \n  \n What's the dropoff location? \n Penrith NSW, Australia \n ",
+  "taskType": 1,
+  "files": ["someBase64StringForAFile", "someAnotherBase64StringForAFile"],
+  "mustHaves": ["string1", "string2", "string3"],
+  "location":{
+    "placeId" : "ChIJyWEHuEmuEmsRm9hTkapTCrk",
+    "geometry":{
+      "lng":"77.634665",
+      "lat":"12.976004"
+    },
+    "name" : "1007/B, 20th Cross Rd, Stage 2, Eshwara Layout, Indiranagar, Bengaluru, Karnataka 560038",
+    "vicinity" : "1007/B, 20th Cross Rd, Stage 2, Eshwara Layout, Indiranagar, Bengaluru, Karnataka 560038"
+  },
+  "dueDate": "01-10-2020",
+  "dueTimeType": 2,
+  "budget":{
+    "type":1,
+    "amount":2000,
+    "hours":0
+  },
+  "user":{
+    "email":"test-user1@mail.com",
+    "phone":"9123456780",
+    "name":"test user 1",
+    "imageUrl":"https://eu7cmie.cloudimg.io/s/crop/136x136/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2988674/image-a69a669cca2a530237c2ee79e20573d0.jpg"
+  },
+  "category": "Moving"
+}
+
+{
+  "title": "Some help moving my belongings",
+  "details": "Hey, my name is Matthew, I need some help moving my belongings from Darlinghurst to Penrith. \n Not too many items just a few boxes, a small tv and a suitcase. \n Everything will be together and ready for you when you arrive to start loading up. \n  \n If I could get a lift with you that would be perfect. \n  \n What's the pickup location? \n Darlinghurst NSW, Australia \n  \n What's the dropoff location? \n Penrith NSW, Australia \n ",
+  "taskType": 1,
+  "files": ["someBase64StringForAFile", "someAnotherBase64StringForAFile"],
+  "mustHaves": ["string1", "string2", "string3"],
+  "location":{
+    "placeId" : "ChIJyWEHuEmuEmsRm9hTkapTCrk",
+    "geometry":{
+      "lng":"77.634665",
+      "lat":"12.976004"
+    },
+    "name" : "1007/B, 20th Cross Rd, Stage 2, Eshwara Layout, Indiranagar, Bengaluru, Karnataka 560038",
+    "vicinity" : "1007/B, 20th Cross Rd, Stage 2, Eshwara Layout, Indiranagar, Bengaluru, Karnataka 560038"
+  },
+  "dueDate": "01-10-2020",
+  "dueTimeType": 2,
+  "budget":{
+    "type":1,
+    "amount":2000,
+    "hours":0
+  },
+  "user":{
+    "email":"test-user1@mail.com",
+    "phone":"9123456780",
+    "name":"test user 1",
+    "imageUrl":"https://eu7cmie.cloudimg.io/s/crop/136x136/https://assets-airtasker-com.s3.amazonaws.com/uploads/user/avatar/2988674/image-a69a669cca2a530237c2ee79e20573d0.jpg"
+  },
+  "category": "Moving"
+}

@@ -36,7 +36,6 @@ public class TaskLite {
   private DueTimeType dueTimeType;
   private Budget budget;
   private String category;
-  @NotNull
   private Location location;
   private User user;
   private FileInfo fileInfo;
