@@ -1,8 +1,11 @@
 package in.taskoo.backbone.offer.mapper;
 
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.ocpsoft.prettytime.PrettyTime;
 import org.springframework.stereotype.Component;
 
 import in.taskoo.backbone.comment.mapper.CommentMapper;
@@ -30,7 +33,9 @@ public class OfferMapper {
         .setDetails(offerEntity.getDetails())
         .setUser(userMapper.toUser(offerEntity.getUserEntity()))
         .setComments(commentMapper.toComments(offerEntity.getComments()))
-        .setTaskId(offerEntity.getTaskEntity().getId());
+        .setTaskId(offerEntity.getTaskEntity().getId())
+        .setPostedAtString(new PrettyTime()
+            .format(Date.from(offerEntity.getSysUpdateDateTime().atZone(ZoneId.systemDefault()).toInstant())));
   }
   
   public List<Offer> toOffers(List<OfferEntity> entities) {

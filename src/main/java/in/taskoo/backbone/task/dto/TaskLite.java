@@ -41,4 +41,5 @@ public class TaskLite {
   private FileInfo fileInfo;
   @JsonProperty(access = Access.READ_ONLY)
   private Integer noOfOffers;
+  private String postedAtString;
 }

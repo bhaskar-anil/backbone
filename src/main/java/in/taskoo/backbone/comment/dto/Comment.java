@@ -22,4 +22,5 @@ public class Comment {
   @JsonProperty(access = Access.READ_ONLY)
   @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
   private LocalDateTime postedAt;
+  private String postedAtString;
 }

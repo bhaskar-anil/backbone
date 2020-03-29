@@ -19,4 +19,5 @@ public class Offer {
   @NotNull
   private Long taskId;
   private List<Comment> comments;
+  private String postedAtString;
 }

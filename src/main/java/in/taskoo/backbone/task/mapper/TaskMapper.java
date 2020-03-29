@@ -1,10 +1,13 @@
 package in.taskoo.backbone.task.mapper;
 
+import java.time.ZoneId;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import org.ocpsoft.prettytime.PrettyTime;
 import org.springframework.stereotype.Component;
 
 import in.taskoo.backbone.common.dto.enums.BudgetType;
@@ -61,7 +64,9 @@ public class TaskMapper {
             .setType(BudgetType.toEnum(taskEntity.getBudgetType())))
         .setUser(userMapper.toUser(taskEntity.getUserEntity()))
         .setCategory(taskEntity.getCategory())
-        .setNoOfOffers(taskEntity.getNoOfOffers());
+        .setNoOfOffers(taskEntity.getNoOfOffers())
+        .setPostedAtString(new PrettyTime()
+            .format(Date.from(taskEntity.getSysUpdateDateTime().atZone(ZoneId.systemDefault()).toInstant())));
   }
   
   public List<TaskLite> toTaskLites(List<TaskEntity> entities) {
